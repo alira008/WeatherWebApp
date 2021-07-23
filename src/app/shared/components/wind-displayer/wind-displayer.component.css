@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+}
+
+.wind-direction {
+  padding-right: 0.6rem;
+}

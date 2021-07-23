@@ -1,0 +1,42 @@
+<body>
+  <br />
+  <div class="container">
+    <div class="title-location">
+      <h1>Tri-Hourly Weather</h1>
+      <h3>- {{ this.cityInfo.name }}, {{ this.cityInfo.country }}</h3>
+    </div>
+    <ul class="list-group">
+      <li *ngFor="let hourlyWeather of hourlyWeathers" class="list-group-item">
+        <time-displayer [date]="this.hourlyWeather.dt * 1000" class="time-hour">
+        </time-displayer>
+        <temp-displayer
+          [temp]="this.hourlyWeather.main.temp"
+          class="temperature"
+        ></temp-displayer>
+        <weather-description-displayer
+          [unix_time]="this.hourlyWeather.dt * 1000"
+          [weather]="this.hourlyWeather.weather[0].main"
+          [description]="this.hourlyWeather.weather[0].description"
+          class="weather-section"
+        ></weather-description-displayer>
+        <!-- <div class="weather-section">
+          <div class="weather-icon"><i class="fas fa-cloud-moon"></i></div>
+          <div class="weather-description">
+            {{ this.hourlyWeather.weather[0].description }}
+          </div>
+        </div> -->
+        <div class="humidity-section">
+          <div class="humidity-icon"><i class="fas fa-tint"></i></div>
+          <div class="humidity">{{ this.hourlyWeather.main.humidity }}%</div>
+        </div>
+        <div class="wind-section">
+          <div class="wind-icon"><i class="fas fa-wind"></i></div>
+          <wind-displayer
+            [direction]="this.hourlyWeather.wind.deg"
+            [speed]="this.hourlyWeather.wind.speed"
+          ></wind-displayer>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>

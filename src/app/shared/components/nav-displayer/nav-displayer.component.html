@@ -1,0 +1,98 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark" id="mainNav">
+    <div class="container">
+      <a href="/" class="navbar-brand">Weather Forecast</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarToggler"
+        aria-controls="navbarToggler"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav w-100 d-flex justify-content-end">
+          <li class="nav-item dropdown me-3" id="firstItem">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              id="dropdownMenuClickableInside"
+              data-bs-auto-close="outside"
+            >
+              {{ this.unitsService.getUnitAbbrev() }}
+            </button>
+            <ul
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuClickableInside"
+            >
+              <li>
+                <a
+                  class="dropdown-item"
+                  (click)="this.unitsService.changeUnit('imperial')"
+                  [href]="this.currentUrl"
+                  >F&deg; (Imperial units)</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  (click)="this.unitsService.changeUnit('metric')"
+                  [href]="this.currentUrl"
+                  >C&deg; (Metric units)</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <form (ngSubmit)="getChosenLocationInfo(0)">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Search City or Zip Code"
+                #cityLookupInput
+              />
+              <div *ngIf="this.showLocations">
+                <ul id="geocodeSuggestions">
+                  <li *ngFor="let location of locations; let i = index">
+                    <a href="/current" (click)="getChosenLocationInfo(i)">
+                      {{
+                        location.address.name
+                          ? location.address.name + ", "
+                          : ""
+                      }}
+                      {{
+                        location.address.state
+                          ? location.address.state + ", "
+                          : ""
+                      }}
+                      {{ location.address.country }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<nav class="navbar navbar-expand-md navbar-light" id="secondNav">
+  <div class="container">
+    <ul class="navbar-nav w-100 d-flex justify-content-around flex-row">
+      <li class="nav-item"><a class="nav-link" href="/current">Today</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tri-hour">Tri-Hourly for 5 days</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/prev-weather">Previous 5 hours</a>
+      </li>
+    </ul>
+  </div>
+</nav>

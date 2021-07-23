@@ -1,0 +1,49 @@
+<body>
+  <nav-displayer></nav-displayer>
+  <br />
+  <div class="container main-section">
+    <div class="title-location">
+      <h1>Tri-Hourly Weather</h1>
+      <h3>- {{ this.cityInfo.name }}, {{ this.cityInfo.country }}</h3>
+    </div>
+    <ul>
+      <li *ngFor="let hourlyWeather of hourlyWeathers; let i = index">
+        <div *ngIf="this.isNewDay(i)" class="date-section">
+          <date-displayer
+            [unixTime]="this.hourlyWeather.dt * 1000"
+          ></date-displayer>
+        </div>
+        <div class="other-details">
+          <time-displayer [date]="this.hourlyWeather.dt * 1000">
+          </time-displayer>
+          <div class="temp-section">
+            <temp-displayer
+              [temp]="this.hourlyWeather.main.temp"
+              [units]="this.unit"
+            ></temp-displayer>
+          </div>
+          <div class="weather-section">
+            <weather-description-displayer
+              [unix_time]="this.hourlyWeather.dt * 1000"
+              [weather]="this.hourlyWeather.weather[0].main"
+              [description]="this.hourlyWeather.weather[0].description"
+              class="weather-section"
+            ></weather-description-displayer>
+          </div>
+          <div class="humid-section">
+            <div class="section-icon"><i class="fas fa-tint"></i></div>
+            <div class="humidity">{{ this.hourlyWeather.main.humidity }}%</div>
+          </div>
+          <div class="wind-section">
+            <div class="section-icon"><i class="fas fa-wind"></i></div>
+            <wind-displayer
+              [direction]="this.hourlyWeather.wind.deg"
+              [speed]="this.hourlyWeather.wind.speed"
+              [units]="this.unit"
+            ></wind-displayer>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>

@@ -1,0 +1,87 @@
+<body>
+  <nav-displayer></nav-displayer>
+  <br />
+  <div class="container main-section">
+    <div class="title-location">
+      <h1>Weather From Previous 5 Hours</h1>
+      <h3>- {{ this.location }}</h3>
+    </div>
+    <ul>
+      <!-- <li>
+        <div class="date-section">
+          <date-displayer
+            [unixTime]="this.currentWeather.dt * 1000"
+          ></date-displayer>
+        </div>
+        <div class="other-details">
+          <time-displayer
+            [date]="this.currentWeather.dt * 1000"
+          ></time-displayer>
+          <div class="temp-section">
+            <temp-displayer
+              [temp]="this.currentWeather.temp"
+              [units]="this.unit"
+            ></temp-displayer>
+          </div>
+          <div class="weather-section">
+            <weather-description-displayer
+              [unix_time]="this.currentWeather.dt * 1000"
+              [weather]="this.currentWeather.weather[0].main"
+              [description]="this.currentWeather.weather[0].description"
+              class="weather-section"
+            ></weather-description-displayer>
+          </div>
+          <div class="humid-section">
+            <div class="section-icon"><i class="fas fa-tint"></i></div>
+            {{ this.currentWeather.humidity }}%
+          </div>
+          <div class="wind-section">
+            <div class="section-icon"><i class="fas fa-wind"></i></div>
+            <wind-displayer
+              [direction]="this.currentWeather.wind_deg"
+              [speed]="this.currentWeather.wind_speed"
+            ></wind-displayer>
+          </div>
+        </div>
+      </li> -->
+      <li *ngFor="let hourlyWeather of hourlyWeathers; let i = index">
+        <div *ngIf="this.isNewDay(i)" class="date-section">
+          <date-displayer
+            [unixTime]="this.hourlyWeather.dt * 1000"
+          ></date-displayer>
+        </div>
+        <div class="other-details">
+          <time-displayer
+            [date]="this.hourlyWeather.dt * 1000"
+          ></time-displayer>
+          <div class="temp-section">
+            <temp-displayer
+              [temp]="this.hourlyWeather.temp"
+              [units]="this.unit"
+            ></temp-displayer>
+          </div>
+          <div class="weather-section">
+            <weather-description-displayer
+              [unix_time]="this.hourlyWeather.dt * 1000"
+              [weather]="this.hourlyWeather.weather[0].main"
+              [description]="this.hourlyWeather.weather[0].description"
+              class="weather-section"
+            ></weather-description-displayer>
+          </div>
+          <div class="humid-section">
+            <div class="section-icon"><i class="fas fa-tint"></i></div>
+            {{ this.currentWeather.humidity }}%
+          </div>
+          <div class="wind-section">
+            <div class="section-icon"><i class="fas fa-wind"></i></div>
+            <wind-displayer
+              [direction]="this.hourlyWeather.wind_deg"
+              [speed]="this.hourlyWeather.wind_speed"
+              [units]="this.unit"
+            ></wind-displayer>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>

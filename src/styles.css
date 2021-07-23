@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+h1,
+h3 {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding-bottom: 2rem;
+}
+
+.navbar-brand {
+  font-size: 2.4rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .title-location {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .title-location > h1 {
+    font-size: 2rem;
+  }
+
+  .title-location > h3 {
+    font-size: 1.6rem;
+  }
+}

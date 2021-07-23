@@ -1,0 +1,171 @@
+body {
+  min-height: 100vh;
+  /* background-image: linear-gradient(rgb(101, 199, 231), white); */
+  background-image: linear-gradient(rgb(241, 217, 166), rgb(173, 168, 231));
+  background-attachment: fixed;
+}
+
+.container {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+}
+
+.main-section {
+  background-color: rgba(111, 101, 224, 0.904);
+  padding: 6rem 4rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  color: whitesmoke;
+  box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.bottom-section {
+  background-color: whitesmoke;
+  border-radius: 2rem;
+  padding: 6rem 4rem;
+  margin-top: 2rem;
+  box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+}
+
+.title-location {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.information {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.actual-temp {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.temps {
+  display: flex;
+  margin-bottom: 0.8rem;
+}
+
+.other-temps {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+}
+
+.weather-icon {
+  font-size: 6rem;
+}
+
+.weather-description {
+  font-size: 3.6rem;
+  font-weight: bold;
+}
+
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.section-icon {
+  margin-right: 0.5rem;
+}
+.section-title,
+.sun-times {
+  display: flex;
+}
+
+.feels-like-temp {
+  font-size: 3.6rem;
+  font-weight: bold;
+}
+
+.feels-like-description {
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
+}
+
+.sunset-section {
+  margin-left: 4rem;
+}
+
+.sunrise-section > hr,
+.sunset-section > hr {
+  width: 40%;
+}
+
+.wind-section > hr,
+.pressure-section > hr,
+.humidity-section > hr {
+  width: 70%;
+}
+
+.bottom-section > hr {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-section,
+  .bottom-section {
+    padding: 4rem 2rem;
+  }
+
+  .information {
+    margin-top: 1.6rem;
+  }
+
+  .actual-temp,
+  .weather-icon {
+    font-size: 3.6rem;
+  }
+
+  .other-temps {
+    font-size: 1.4rem;
+  }
+
+  .weather-description {
+    font-size: 2.4rem;
+  }
+
+  .bottom-section {
+    font-size: 1rem;
+  }
+
+  .feels-like-temp {
+    font-size: 2.4rem;
+  }
+
+  .feels-like-description {
+    font-size: 1.8rem;
+  }
+
+  .sunset-section {
+    margin-left: 1rem;
+  }
+
+  .bottom-section > hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}

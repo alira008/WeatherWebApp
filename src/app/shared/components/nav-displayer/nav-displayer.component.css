@@ -1,0 +1,65 @@
+#mainNav {
+  background-color: rgb(26, 26, 134);
+  padding: 2rem 0rem;
+}
+
+#secondNav {
+  background-color: white;
+  color: white;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  border-radius: 2rem;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1.6rem;
+  border-radius: 2rem;
+}
+
+.dropdown-menu > li > a {
+  padding: 1rem;
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: #1b4de4;
+  color: white;
+}
+
+#geocodeSuggestions {
+  position: absolute;
+  list-style: none;
+  background-color: white;
+  padding: 0;
+  z-index: 1;
+  margin-top: 0.25rem;
+  padding: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+#geocodeSuggestions > li {
+  /* padding: 1rem 0rem; */
+}
+
+#geocodeSuggestions > li > a {
+  padding: 1rem 1rem;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+#geocodeSuggestions > li > a:hover {
+  background-color: #1b4de4;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  #firstItem {
+    padding-bottom: 1rem;
+  }
+}

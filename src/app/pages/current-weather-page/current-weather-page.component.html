@@ -1,0 +1,95 @@
+<body>
+  <nav-displayer></nav-displayer>
+  <br />
+  <div class="container main-section">
+    <div class="title-location">
+      <h1>Current Weather</h1>
+      <h3>- {{ this.city }}, {{ this.cityInfo.country }}</h3>
+    </div>
+    <div class="information">
+      <div class="info-left">
+        <div class="temps">
+          <div class="actual-temp">{{ this.tempInfo.temp }}&deg;</div>
+          <div class="other-temps">
+            H: {{ this.tempInfo.temp_max }} L: {{ this.tempInfo.temp_min }}
+          </div>
+        </div>
+        <div class="weather-description">
+          {{ this.weatherInfo[0].description }}
+        </div>
+      </div>
+      <div class="info-right">
+        <div class="weather-icon">
+          <i [ngClass]="[this.fa_class, this.fa_icon]"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container bottom-section">
+    <div class="top-info">
+      <div class="feels-like-temp-section">
+        <div class="feels-like-temp">{{ this.tempInfo.feels_like }}&deg;</div>
+        <div class="feels-like-description">Feels Like</div>
+      </div>
+      <div class="sun-times">
+        <div class="sunrise-section">
+          <div class="section-title">
+            <div class="section-icon"><i class="fas fa-angle-up"></i></div>
+            Sunrise
+          </div>
+          <hr />
+          <div class="sunrise">
+            <time-displayer
+              [date]="this.cityInfo.sunrise * 1000"
+            ></time-displayer>
+          </div>
+        </div>
+        <div class="sunset-section">
+          <div class="section-title">
+            <div class="section-icon"><i class="fas fa-angle-down"></i></div>
+            Sunset
+          </div>
+          <hr />
+          <div class="sunset">
+            <time-displayer
+              [date]="this.cityInfo.sunset * 1000"
+            ></time-displayer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="bottom-info">
+      <div class="wind-section">
+        <div class="section-title">
+          <div class="section-icon"><i class="fas fa-wind"></i></div>
+          Wind
+        </div>
+        <hr />
+        <div class="wind">
+          <wind-displayer
+            [direction]="this.windInfo.deg"
+            [speed]="this.windInfo.speed"
+            [units]="this.unit"
+          ></wind-displayer>
+        </div>
+      </div>
+      <div class="pressure-section">
+        <div class="section-title">
+          <div class="section-icon"><i class="fas fa-compress-alt"></i></div>
+          Pressure
+        </div>
+        <hr />
+        <div class="pressure">{{ this.tempInfo.pressure }}</div>
+      </div>
+      <div class="humidity-section">
+        <div class="section-title">
+          <div class="section-icon"><i class="fas fa-tint"></i></div>
+          Humidity
+        </div>
+        <hr />
+        <div class="humidity">{{ this.tempInfo.humidity }}%</div>
+      </div>
+    </div>
+  </div>
+</body>
