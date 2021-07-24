@@ -25,7 +25,7 @@ export class PrevWeatherPageComponent implements OnInit {
     //  Get weather data to be displayed
     this.service.getPrevious()
       .subscribe(response => {
-        // console.log(response)
+        console.log(response)
         this.hourlyWeathers = response['hourly']
         this.currentWeather = response['current']
         let city = response['timezone'].split("/")
